@@ -5,7 +5,7 @@ var apiKeyValue = "live_jy5yM47I59NELyCljtxLRgpdPk3QeW6xI4JEfWjoBk4ODdKB3MQ9UyEU
 var header = {keyHeader : apiKeyValue}
 var breeds = "https://api.thedogapi.com/v1/breeds"
 
-// Console logs of data pull
+// Console logs of data pull from API
 var fetchDogs = function pullData() {
     return $.get(breeds).then(function(data){
         var allDogData = data
@@ -30,14 +30,18 @@ var fetchDogs = function pullData() {
         return allDogData;
     })
 }
+var select = document.querySelector(".breed-select");
+var breedOption = document.querySelector(".breed-option");
 
-fetchDogs().then(function(data){
-    populateDogs(data);
-});
+select.addEventListener("change", function(eventOnChild) {
+    var element = eventOnChild.target.value;
+    var selectDog = parseInt(element) - 1;
+    compareUserInputToData(selectDog);
+})
 
+// Here I am taking all the dog breeds and placing them in a drop-down menu
 // https://www.youtube.com/watch?v=0gmDnS7fEBY
 var populateDogs = (breeds) => {
-    var select = document.querySelector(".breed-select");
     var breedOptions = breeds.map(breed => {
         var option = document.createElement("option");
         option.text = breed.name;
@@ -49,28 +53,46 @@ var populateDogs = (breeds) => {
     })
 }
 
-var changeDog = () => {
-    // the importance of this value is that it targets the id associated with the dog in the populateDogs function
-    // fetchDogs(event.target.value);
-    var dogValue = event.target.value;
-    dogValueConvertedToIndex = dogValue -1;
-    console.log(dogValueConvertedToIndex)
-    return dogValueConvertedToIndex;
-}
-var getDog = function compareUserInputToData(changeDog) {
+// Now I am saying that I want to call fetchDogs function and then run populateData with that data that the API gave me
+fetchDogs().then(function(data){
+    populateDogs(data);
+});
+
+// Here, I am selecting the dog from the list and grabbing the id. The id is a value number associated with each object of dogs. I then need to subtract 1 from this id so that I have something to compare to the index location
+// var selectDog = (thisDog) => {
+//     // var dogValue = event.target.value;
+//     var dogValue = parseInt(thisDog);
+//     console.log(typeof dogValue);
+//     dogValueConvertedToIndex = dogValue -1;
+//     console.log(dogValueConvertedToIndex)
+//     return dogValueConvertedToIndex;
+// }
+
+// The dog was selected, now I'm trying to match it with the correct index so that I can pull other data about it
+function compareUserInputToData(selectDog) {
     return $.get(breeds).then(function(data){
-        for (i = 0; i < data[i].length ; i++)
-            console.log("here")
-            if (changeDog == [i]){
-                console.log(data[i].name)
-                console.log("help")
+        for (let i = 0; i < data.length ; i++){
+            var dogAtAnIndex = data[i].name;
+            if (selectDog == [i]){
+                console.log(dogAtAnIndex)
             }
-        return data[i].name       
+        }
+        return dogAtAnIndex       
     })
 }
 
+// function displayDog(getDog){
+//     console.log(getDog)
+// }
 
+// displayDog();
 
+// console.log("THIS: ", this)
+
+// $(document).ready(function() {
+    
+//     console.log("THIS1: ", this)
+// })
 // Query Selectors
 
 // var sectionFind = document.querySelector("#find");
