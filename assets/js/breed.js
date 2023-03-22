@@ -1,41 +1,80 @@
+// API Info
 var keyHeader = "x-api-key";
 var apiKeyValue = "live_jy5yM47I59NELyCljtxLRgpdPk3QeW6xI4JEfWjoBk4ODdKB3MQ9UyEU7EVF051D"
 
 var header = {keyHeader : apiKeyValue}
 var breeds = "https://api.thedogapi.com/v1/breeds"
 
-$.get(breeds).then(function(data){
-    console.log("---All Dog Data below:");
-    console.log(data);
-    console.log("---Name first dog in array below:");
-    console.log(data[0].name);
-    console.log("---id that is affiliated with breed for search purposes")
-    console.log(data[0].id);
-    console.log("---Bred for details of first dog in array below:");
-    console.log(data[0].bred_for);
-    console.log("---Lifespan of first dog in array below:");
-    console.log(data[0].life_span);
-    console.log("---Temperament of first dog in array below:");
-    console.log(data[0].temperament);
-    console.log("---Image id of first dog in array below:");
-    console.log(data[0].image.id);
-    console.log("---Image width of first dog in array below:");
-    console.log(data[0].image.width);
-    console.log("---Image height of first dog in array below:");
-    console.log(data[0].image.height);
-    console.log("---Image url of first dog in array below:");
-    console.log(data[0].image.url);
-})
+// Console logs of data pull
+var fetchDogs = function pullData() {
+    return $.get(breeds).then(function(data){
+        var allDogData = data
+        console.log("---All Dog Data below:");
+        console.log(allDogData);
+        console.log("---Name first dog in array below:");
+        console.log(allDogData[0].name);
+        console.log("---id that is affiliated with breed for search purposes")
+        console.log(allDogData[0].id);
+        console.log("---Lifespan of first dog in array below:");
+        console.log(allDogData[0].life_span);
+        console.log("---Temperament of first dog in array below:");
+        console.log(allDogData[0].temperament);
+        console.log("---Image id of first dog in array below:");
+        console.log(allDogData[0].image.id);
+        console.log("---Image width of first dog in array below:");
+        console.log(allDogData[0].image.width);
+        console.log("---Image height of first dog in array below:");
+        console.log(allDogData[0].image.height);
+        console.log("---Image url of first dog in array below:");
+        console.log(allDogData[0].image.url);
+        return allDogData;
+    })
+}
 
+fetchDogs().then(function(data){
+    populateDogs(data);
+});
 
+// https://www.youtube.com/watch?v=0gmDnS7fEBY
+var populateDogs = (breeds) => {
+    var select = document.querySelector(".breed-select");
+    var breedOptions = breeds.map(breed => {
+        var option = document.createElement("option");
+        option.text = breed.name;
+        // the value of the dog name has to equal the ID I console logged above 
+        option.value = breed.id
+        // here I take the options I created and append it to the select
+        select.appendChild(option);
+        return option
+    })
+}
 
+// populateDogs(fetchDogs);
 
+// Query Selectors
 
+// var sectionFind = document.querySelector("#find");
 
+// function myPracticeFunction(){
+//     var createPracticeDiv = document.createElement("div");
+//     var newContent = document.createTextNode("My practice function displaying data on the page.");
 
+//     var newDivAndContent = createPracticeDiv.appendChild(newContent);
+//     sectionFind.appendChild(newDivAndContent);
+// }
 
+// myPracticeFunction()
 
+// function fetchDog(){
+//     var createFetchDiv = document.createElement("div");
+//     var fetchName = document.createTextNode();
+//     console.log(fetchName);
 
+//     var myVariable = createFetchDiv.appendChild(fetchName);
+//     sectionFind.appendChild(myVariable);
+// }
+
+// fetchDog()
 
 // var myHeaders = new Headers();
 // myHeaders.append("Content-Type", "application/json");
