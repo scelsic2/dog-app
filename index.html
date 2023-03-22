@@ -5,36 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fido Facts</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
         <div>
-
+            <h1>Fido Facts</h1>
         </div>
-        <h1>Fido Facts</h1>
         <nav>
-            <a href="#about"></a>
-            <a href="#find"></a>
+            <a href="#about">About</a>
+            <a href="#find">Find</a>
         </nav>
     </header> 
     
-    <section id="about" class="box"> 
-        <h2></h2>
+    <section id="about" class="columns">
+        <div class="column">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+        </div>
+        <div class="column">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+        </div>
+        
     </section>
         
     <section id="find" class="search">
-            <label for=“dog-search-label”>Dog Breed:</label>
-            <input type=“text” id=“dog-search-text” name="dog" placeholder="Search Your Perfect Dog!"></input>
-            <button type=“submit” id=“submit-button>Find Your Fido!</button> 
+        <input type=“text” id=“dog-search-text” name="dog" placeholder="Search Your Perfect Dog!">
+        </input>
+        <button type=“submit” id=“submit-button>Find Your Fido!</button> 
     </section>
-    <footer>
-        <p>
-         &copy; 2023   
-        </p>
-        <p> Natalie, Cassandra, Wajeeha, Jamarie </p>
+
+    <section id="info" class="columns">
+        <div class="column">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+        </div>
+        <div class="column">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+        </div>
+        
+    </section>
+
+    <footer class="footer">
+        <p class="content has-text-centered">Copyright &copy; 2023</p>
+        <p class="content has-text-centered"> Natalie, Cassandra, Wajeeha, Jamarie </p>
     </footer>
-    <section id="info" class="box"></section>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/facts.js"></script>
     <script src="./assets/js/breed.js"></script>
