@@ -49,6 +49,12 @@ var populateDogs = (breeds) => {
     })
 }
 
+var changeDog = () => {
+    // the importance of this value is that it targets the id associated with the dog in the populateDogs function
+    console.log(event.target.value);
+
+}
+
 // populateDogs(fetchDogs);
 
 // Query Selectors
