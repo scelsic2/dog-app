@@ -51,11 +51,25 @@ var populateDogs = (breeds) => {
 
 var changeDog = () => {
     // the importance of this value is that it targets the id associated with the dog in the populateDogs function
-    console.log(event.target.value);
-
+    // fetchDogs(event.target.value);
+    var dogValue = event.target.value;
+    dogValueConvertedToIndex = dogValue -1;
+    console.log(dogValueConvertedToIndex)
+    return dogValueConvertedToIndex;
+}
+var getDog = function compareUserInputToData(changeDog) {
+    return $.get(breeds).then(function(data){
+        for (i = 0; i < data[i].length ; i++)
+            console.log("here")
+            if (changeDog == [i]){
+                console.log(data[i].name)
+                console.log("help")
+            }
+        return data[i].name       
+    })
 }
 
-// populateDogs(fetchDogs);
+
 
 // Query Selectors
 
