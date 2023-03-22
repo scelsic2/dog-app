@@ -1,4 +1,13 @@
 
+img {
+    width:400px;
+    height: 400px;
+}
+
+#Giphy{
+    display:flex; flex-wrap: wrap;
+}
+
 :root {
     --primary-background-color: #E6DED4;
     --primary-text-color: #75372D;
@@ -49,3 +58,4 @@ a:hover {
 } */
 
 /* RESPONSIVE STYLES */
+
