@@ -102,3 +102,4 @@ function compareUserInputToData(selectDog) {
     return foundDog;
     
   }).catch(err=>console.error(err))}
+  
