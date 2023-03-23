@@ -5,10 +5,12 @@ var apiKeyValue = "live_jy5yM47I59NELyCljtxLRgpdPk3QeW6xI4JEfWjoBk4ODdKB3MQ9UyEU
 var header = {keyHeader : apiKeyValue}
 var breeds = "https://api.thedogapi.com/v1/breeds"
 
+var allDogData = null;
+
 // Console logs of data pull from API
 var fetchDogs = function pullData() {
     return $.get(breeds).then(function(data){
-        var allDogData = data
+        allDogData = data
         console.log("---All Dog Data below:");
         console.log(allDogData);
         console.log("---Name first dog in array below:");
@@ -27,17 +29,22 @@ var fetchDogs = function pullData() {
         console.log(allDogData[0].image.height);
         console.log("---Image url of first dog in array below:");
         console.log(allDogData[0].image.url);
-        return allDogData;
     })
 }
+
 var select = document.querySelector(".breed-select");
 var breedOption = document.querySelector(".breed-option");
 
 select.addEventListener("change", function(eventOnChild) {
     var element = eventOnChild.target.value;
-    var selectDog = parseInt(element) - 1;
-    compareUserInputToData(selectDog);
+    var selectedDogID = parseInt(element);
+    compareUserInputToData(selectedDogID);
 })
+
+// Now I am saying that I want to call fetchDogs function and then run populateData with that data that the API gave me
+fetchDogs().then(function(data){
+    populateDogs(data);
+});
 
 // Here I am taking all the dog breeds and placing them in a drop-down menu
 // https://www.youtube.com/watch?v=0gmDnS7fEBY
@@ -53,46 +60,75 @@ var populateDogs = (breeds) => {
     })
 }
 
-// Now I am saying that I want to call fetchDogs function and then run populateData with that data that the API gave me
-fetchDogs().then(function(data){
-    populateDogs(data);
-});
-
-// Here, I am selecting the dog from the list and grabbing the id. The id is a value number associated with each object of dogs. I then need to subtract 1 from this id so that I have something to compare to the index location
-// var selectDog = (thisDog) => {
-//     // var dogValue = event.target.value;
-//     var dogValue = parseInt(thisDog);
-//     console.log(typeof dogValue);
-//     dogValueConvertedToIndex = dogValue -1;
-//     console.log(dogValueConvertedToIndex)
-//     return dogValueConvertedToIndex;
-// }
-
 // The dog was selected, now I'm trying to match it with the correct index so that I can pull other data about it
-function compareUserInputToData(selectDog) {
-    return $.get(breeds).then(function(data){
-        for (let i = 0; i < data.length ; i++){
-            var dogAtAnIndex = data[i].name;
-            if (selectDog == [i]){
-                console.log(dogAtAnIndex)
-            }
-        }
-        return dogAtAnIndex       
-    })
-}
 
-// function displayDog(getDog){
-//     console.log(getDog)
+// // This works but duplicates the loop. (at index 19)
+// function compareUserInputToData(selectedDogID) {
+//     //since we stored the first api request in this variable on line 13 
+//     //we don't have to make the request again
+//     if(allDogData != null) {
+//         //both for loops below are exactly the same
+        
+//         //for loop below which uses an index that is used only to iterate through the breeds
+//         // for (i = 0; i < allDogData.length ; i++){
+//         //     var dogAtAnIndex = allDogData[i];
+//         //     if(dogAtAnIndex.id == selectedDogID){
+//         //         console.log(dogAtAnIndex);
+//         //         //todo: print selected dog to page from here
+//         //         //return dogAtAnIndex;
+//         //     }
+//         // }
+
+//         //for loop below which handles iteration for you and returns each breed as dogAtAnIndex
+//         for(var dogAtAnIndex of allDogData) {
+//             if(dogAtAnIndex.id == selectedDogID) {
+//                 console.log(dogAtAnIndex);
+//                 //todo: print selected dog to page from here
+//                 //return dogAtAnIndex;
+//             }
+//         }
+//     }
+//     else {
+//         $.get(breeds).then(function(data){
+//             //both for loops below are exactly the same
+            
+//             //for loop below which uses an index that is used only to iterate through the breeds
+//             // for (i = 0; i < data.length ; i++){
+//             //     var dogAtAnIndex = data[i];
+//             //     if(dogAtAnIndex.id == selectedDogID){
+//             //         console.log(dogAtAnIndex);
+//             //         //todo: print selected dog to page from here
+//             //         //return dogAtAnIndex;
+//             //     }
+//             // }
+
+//             //for loop below which handles iteration for you and returns each breed as dogAtAnIndex
+//             for(var dogAtAnIndex of data) {
+//                 if(dogAtAnIndex.id == selectedDogID) {
+//                     console.log(dogAtAnIndex);
+//                     //todo: print selected dog to page from here
+//                     //return dogAtAnIndex;
+//                 }
+//             }
+//         })
+//     }
 // }
 
-// displayDog();
-
-// console.log("THIS: ", this)
-
-// $(document).ready(function() {
+// // function compareUserInputToData(selectDog) {
+// //     fetchDogs;
+// //         for (let i = 0; i < data.length ; i++){
+// //             var dogAtAnIndex = data[i].name;
+// //             if (selectDog == [i]){
+// //                 console.log(dogAtAnIndex)
+// //             }
+// //         }
+// //         return dogAtAnIndex       
     
-//     console.log("THIS1: ", this)
-// })
+// // }
+
+
+
+
 // Query Selectors
 
 // var sectionFind = document.querySelector("#find");
