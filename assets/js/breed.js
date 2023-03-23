@@ -30,7 +30,7 @@ function fetchDogs() {
     console.log(allDogData[0].image.url);
     return allDogData;
   });
-}
+} 
 
 var select = document.querySelector(".breed-select");
 var breedOption = document.querySelector(".breed-option");
@@ -94,113 +94,4 @@ function compareUserInputToData(selectDog) {
 
     return foundDog;
     
-  }).catch(err=>console.error(err))
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // $.get(breeds).then(function(data){
-  //     for (i = 0; i < data.length ; i++){
-  //         var idLocationInArray = data[i].id
-  //         if (idLocationInArray.find(selectDog == i)){
-  //             console.log(selectDog + "is a match")
-  //         };
-
-  //     }
-  // })
-}
-
-// previous attempts
-// function compareUserInputToData(selectDog) {
-//     $.get(breeds).then(function(data){
-//         for (i = 0; i < data.length ; i++){
-//             if (data.find(selectDog == i)){
-//                 console.log(selectDog + "is a match")
-//             };
-
-//         }
-//     })
-// }
-// function compareUserInputToData(selectDog) {
-//     $.get(breeds).then(function(data){
-//         for (i = 0; i < data.length ; i++){
-//             var idLocation = data[i].id;
-//             console.log(idLocation);
-//             if (var selectedID = idLocation.find(selectDog == i)){
-
-//             })
-
-//             console.log(selectedID)
-//         }
-//         return selectedID
-//     })
-// }
-
-// This works but duplicates the loop. (at index 19)
-// function compareUserInputToData(selectDog) {
-//     $.get(breeds).then(function(data){
-//         for (i = 0; i < data.length ; i++){
-//             var dogAtAnIndex = data[i].name;
-//             if (selectDog == [i]){
-//                 console.log(dogAtAnIndex)
-//             }
-//         }
-//         return dogAtAnIndex
-//     })
-// }
-
-// Query Selectors
-
-// var sectionFind = document.querySelector("#find");
-
-// function myPracticeFunction(){
-//     var createPracticeDiv = document.createElement("div");
-//     var newContent = document.createTextNode("My practice function displaying data on the page.");
-
-//     var newDivAndContent = createPracticeDiv.appendChild(newContent);
-//     sectionFind.appendChild(newDivAndContent);
-// }
-
-// myPracticeFunction()
-
-// function fetchDog(){
-//     var createFetchDiv = document.createElement("div");
-//     var fetchName = document.createTextNode();
-//     console.log(fetchName);
-
-//     var myVariable = createFetchDiv.appendChild(fetchName);
-//     sectionFind.appendChild(myVariable);
-// }
-
-// fetchDog()
-
-// var myHeaders = new Headers();
-// myHeaders.append("Content-Type", "application/json");
-
-// var requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-//   redirect: 'follow'
-// };
-
-// fetch("{{endpoint}}v1/breeds?limit=10&page=0", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-
-//   console.log("dog")
-
-// var fetchDogBreeds = () => {
-//     fetch()
-// }
-
-// fetchDogBreeds();
+  }).catch(err=>console.error(err))}
