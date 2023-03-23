@@ -91,8 +91,17 @@ function compareUserInputToData(selectDog) {
     dogName.innerHTML = foundDog.name;
     dogName.style.fontWeight="bolder";
     lifeSpan.innerHTML = "Life Span: " + foundDog.life_span;
-    bredFor.innerHTML = "Bred for: " + foundDog.bred_for;
-    temperament.innerHTML = "Temperament: " + foundDog.temperament;
+        if (foundDog.bred_for == undefined || ""){
+                bredFor.innerHTML = ""
+        } else if(foundDog.bred_for == ""){
+            bredFor.innerHTML = ""
+        } else {
+                bredFor.innerHTML = "Bred for: " + foundDog.bred_for;
+            }
+        if (foundDog.temperament == undefined){
+            temperament.innerHTML = ""
+        } else { temperament.innerHTML = "Temperament: " + foundDog.temperament;
+        }
     height.innerHTML = "Height: " + foundDog.height.imperial + " inches";
     weight.innerHTML = "Weight: " + foundDog.weight.imperial + " lbs";
     // origin.innerHTML = "Origin: " + foundDog.origin;
