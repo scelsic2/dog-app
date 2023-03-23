@@ -5,38 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fido Facts</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+          background-image: url('assets/images/background3.png');
+        }
+        </style>
 </head>
 <body>
     <header>
-        <div>
+        <nav class="navbar special" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <h1 class="navbar-item">Fido Facts</h1>
 
-        </div>
-        <h1>Fido Facts</h1>
-        <nav>
-            <a href="#about"></a>
-            <a href="#find"></a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="#about">About</a>
+                    <a class="navbar-item" href="#find">Find</a>
+                </div>
+            </div>
+
         </nav>
+
     </header> 
     
-    <section id="about" class="box"> 
-        <h2></h2>
+    <section id="about" class="columns">
+        <div class="column is-4 is-offset-2">
+            <p class="notification card">First</p>
+        </div>
+
+        <div class="column is-3 is-offset-2">
+            <p>
+                <img src="assets/images/Dog.jpg" alt="">
+            </p>
+        </div>
+        
     </section>
         
-    <!-- https://www.youtube.com/watch?v=0gmDnS7fEBY -->
-    <section id="find" class="search">
-        <select class="breed-select">
-            <option class="breed-option">Find Your Fido!</option>
+    <section id="find" class="columns">
+        <select class="breed-select column is-3 is-offset-5">
+            <option>Find Your Fido!</option>
         </select>
     </section>
 
-    <footer>
-        <p>
-         &copy; 2023   
-        </p>
-        <p> Natalie Matos, Cassandra Scelsi, Wajeeha Riyasat, & Jamarie Brown </p>
+    <section id="info" class="columns">
+        <div class="column is-3 is-offset-2">
+            <p><img src="assets/images/great_dane.jpg" alt=""></p>
+        </div>
+        
+        <div class="column is-4 is-offset-2">
+            <div class="notification has-text-centered card">
+                <h2><strong>Great Dane</strong></h2>
+                <ul>
+                    <li>id: 124</li>
+                    <li>Friendly, Devoted, Reserved, Gentle, Confident, Loving</li>
+                    <li>50 - 86 kgs</li>
+                    <li>71 - 81 cm at the withers</li>
+                    <li>7 - 10 years average life span</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="has-text-centered columns">
+            <div class="column is-6 is-offset-1">
+                <p > Copyright &copy; 2023 Natalie Matos, Cassandra Scelsi, Wajeeha Riyasat, & Jamarie Brown </p>
+                <p>Thanks for stopping by please enjoy a dog GIF on your way out</p>
+            </div>
+            <div id ="Giphy" class="column is-2 is-offset-1"></div>
+        </div>
     </footer>
-    <section id="info" class="box"></section>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/facts.js"></script>
     <script src="./assets/js/breed.js"></script>
