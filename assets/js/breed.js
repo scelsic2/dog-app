@@ -1,4 +1,6 @@
 // API Info
+
+
 var keyHeader = "x-api-key";
 var apiKeyValue =
   "live_jy5yM47I59NELyCljtxLRgpdPk3QeW6xI4JEfWjoBk4ODdKB3MQ9UyEU7EVF051D";
@@ -22,10 +24,10 @@ function fetchDogs() {
     console.log(allDogData[0].temperament);
     console.log("---Image id of first dog in array below:");
     console.log(allDogData[0].image.id);
-    console.log("---Image width of first dog in array below:");
-    console.log(allDogData[0].image.width);
-    console.log("---Image height of first dog in array below:");
-    console.log(allDogData[0].image.height);
+    // console.log("---Image width of first dog in array below:");
+    // console.log(allDogData[0].image.width);
+    // console.log("---Image height of first dog in array below:");
+    // console.log(allDogData[0].image.height);
     console.log("---Image url of first dog in array below:");
     console.log(allDogData[0].image.url);
     return allDogData;
@@ -35,6 +37,17 @@ function fetchDogs() {
 var select = document.querySelector(".breed-select");
 var breedOption = document.querySelector(".breed-option");
 var findSection = document.querySelector("#find");
+var dogName = document.querySelector("#dog-name");
+var dogUL = document.querySelector("ul");
+var lifeSpan = document.querySelector("#life-span");
+var bredFor = document.querySelector("#bred-for")
+var temperament = document.querySelector("#temperament");
+var height = document.querySelector("#height");
+var weight = document.querySelector("#weight");
+var origin = document.querySelector("#origin");
+var dogFactsCard = document.querySelector(".dog-facts-card")
+
+dogFactsCard.classList.add("hide-me");
 
 select.addEventListener("change", function (eventOnChild) {
   var element = eventOnChild.target.value;
@@ -66,31 +79,19 @@ var populateDogs = (breeds) => {
 //function that takes in a select dog and finds the dog from the array of dog information =>returns select dog
 // I tried to run my fetchDog function earlier but couldn't because the page loaded too quickly, so we then ran it again but waiting until it was inside the .then so that it wouldn't run until the API was ready with information to return
 function compareUserInputToData(selectDog) {
-  console.log(selectDog);
-  fetchDogs().then(function (data) {
+    console.log(selectDog);
+    fetchDogs().then(function (data) {
     const foundDog = data.find((dog) => dog.id === selectDog);
     console.log(foundDog)
-  
-    var createFetchDiv = document.createElement("div");
-    createFetchDiv.classList.add("fetch-div")
-    // var grabFetchDiv = document.querySelector(".fetch-div");
-    // console.log(grabFetchDiv);
-
-    var fetchName = document.createTextNode(foundDog.name);
-    var fetchLifeSpan = document.createTextNode(foundDog.life_span);
-    var fetchTemperament = document.createTextNode(foundDog.temperament);
-    
-    var createImage = document.createElement("img");
-    var fetchImage = document.createElement(src = "foundDog.image.url");
-    
-    createFetchDiv.appendChild(fetchName);
-    createFetchDiv.appendChild(fetchLifeSpan);
-    createFetchDiv.appendChild(fetchTemperament);
-
-    createImage.appendChild(fetchImage);
-
-    findSection.appendChild(createFetchDiv);
-    findSection.appendChild(createImage);
+    dogFactsCard.classList.remove("hide-me");
+    dogName.innerHTML = foundDog.name;
+    dogName.style.fontWeight="bolder";
+    lifeSpan.innerHTML = "Life Span: " + foundDog.life_span;
+    bredFor.innerHTML = "Bred for: " + foundDog.bred_for;
+    temperament.innerHTML = "Temperament: " + foundDog.temperament;
+    height.innerHTML = "Height: " + foundDog.height.imperial + " inches";
+    weight.innerHTML = "Weight: " + foundDog.weight.imperial + " lbs";
+    origin.innerHTML = "Origin: " + foundDog.origin;
 
     return foundDog;
     
