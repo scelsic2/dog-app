@@ -7,57 +7,86 @@
     <title>Fido Facts</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <style>
+        body {
+          background-image: url('assets/images/background3.png');
+        }
+        </style>
 </head>
 <body>
     <header>
-        <div>
-            <h1>Fido Facts</h1>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#find">Find</a>
+        <nav class="navbar special" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <h1 class="navbar-item">Fido Facts</h1>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="#about">About</a>
+                    <a class="navbar-item" href="#find">Find</a>
+                </div>
+            </div>
+
         </nav>
+
     </header> 
     
     <section id="about" class="columns">
-        <div class="column">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+        <div class="column is-4 is-offset-2">
+            <p class="notification card">First</p>
         </div>
-        <div class="column">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+
+        <div class="column is-3 is-offset-2">
+            <p>
+                <img src="assets/images/Dog.jpg" alt="">
+            </p>
         </div>
         
     </section>
         
-    <section id="find" class="search">
-        <select class="breed-select">
+    <section id="find" class="columns">
+        <select class="breed-select column is-3 is-offset-5">
             <option>Find Your Fido!</option>
         </select>
     </section>
 
     <section id="info" class="columns">
-        <div class="column">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
-        </div>
-        <div class="column">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam repellendus provident porro ullam voluptatum nostrum et pariatur aliquam, repudiandae iusto, qui deleniti nesciunt eos molestiae possimus deserunt quasi nobis!</h2>
+        <div class="column is-3 is-offset-2">
+            <p><img src="assets/images/great_dane.jpg" alt=""></p>
         </div>
         
-    </section>
-    
-    <footer>
-        <p>
-         &copy; 2023   
-        </p>
-        <p> Natalie Matos, Cassandra Scelsi, Wajeeha Riyasat, & Jamarie Brown </p>
-    </footer>
-    
+        <div class="column is-4 is-offset-2">
+            <div class="notification has-text-centered card">
+                <h2><strong>Great Dane</strong></h2>
+                <ul>
+                    <li>id: 124</li>
+                    <li>Friendly, Devoted, Reserved, Gentle, Confident, Loving</li>
+                    <li>50 - 86 kgs</li>
+                    <li>71 - 81 cm at the withers</li>
+                    <li>7 - 10 years average life span</li>
+                </ul>
+            </div>
 
-    <div id ="Giphy" ></div>
-    
-    <button type=“button” id=“find-button”>Find Your Fido!</button> 
-    
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="has-text-centered columns">
+            <div class="column is-6 is-offset-1">
+                <p > Copyright &copy; 2023 Natalie Matos, Cassandra Scelsi, Wajeeha Riyasat, & Jamarie Brown </p>
+                <p>Thanks for stopping by please enjoy a dog GIF on your way out</p>
+            </div>
+            <div id ="Giphy" class="column is-2 is-offset-1"></div>
+        </div>
+        
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/facts.js"></script>

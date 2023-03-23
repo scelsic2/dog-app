@@ -1,12 +1,13 @@
 
-img {
-    width:400px;
-    height: 400px;
-}
-
 #Giphy{
     display:flex; flex-wrap: wrap;
 }
+
+#Giphy img {
+    width:150px;
+    height: 150px;
+}
+
 
 :root {
     --primary-background-color: #E6DED4;
@@ -15,47 +16,34 @@ img {
     --primary-shadow-color: #703A44;
 }
 
-/* RESETS */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-} */
-
-/* GLOBAL CLASSES */
-
-/* CUSTOM CLASSES */
-
-
-header {
-    margin: 10px;
+.special {
     padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: var(--primary-background-color);
     border: #DA828F solid 2px;
-    border-radius: 20px;
     box-shadow: 0px 20px 20px var(--primary-shadow-color);
 }
 
-a {
+.navbar-end a {
+    background-color: var(--primary-background-color) !important;
     color: var(--primary-text-color);
     padding: 15px;
     text-decoration: none;
 }
 
-a:hover {
+.navbar-end a:hover {
     color: var(--primary-border-color);
     text-decoration: underline;
 }
 
-/* footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+.card {
+    background-color: var(--primary-background-color);
+    border: #DA828F solid 2px;
+    border-radius: 10px;
+    box-shadow: 0px 20px 20px var(--primary-shadow-color);
+}
 
-/* RESPONSIVE STYLES */
-
+#info img{
+    border: #DA828F solid 2px;
+    border-radius: 10px;
+    box-shadow: 0px 20px 20px var(--primary-shadow-color);
+}
