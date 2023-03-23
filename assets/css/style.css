@@ -1,34 +1,22 @@
 
-img {
-    width:400px;
-    height: 400px;
-}
-
 #Giphy{
     display:flex; flex-wrap: wrap;
 }
 
+#Giphy img {
+    width:150px;
+    height: 150px;
+}
+
+/* 
 :root {
     --primary-background-color: #E6DED4;
     --primary-text-color: #75372D;
     --primary-border-color: #DA828F;
     --primary-shadow-color: #703A44;
-}
-
-/* RESETS */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
 } */
 
-/* GLOBAL CLASSES */
-
-/* CUSTOM CLASSES */
-
-
-header {
+/* header {
     margin: 10px;
     padding: 15px 25px;
     display: flex;
@@ -49,13 +37,4 @@ a {
 a:hover {
     color: var(--primary-border-color);
     text-decoration: underline;
-}
-
-/* footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 } */
-
-/* RESPONSIVE STYLES */
-
