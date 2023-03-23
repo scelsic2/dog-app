@@ -14,22 +14,22 @@ function fetchDogs() {
     var allDogData = data;
     console.log("---All Dog Data below:");
     console.log(allDogData);
-    console.log("---Name first dog in array below:");
-    console.log(allDogData[0].name);
-    console.log("---id that is affiliated with breed for search purposes");
-    console.log(allDogData[0].id);
-    console.log("---Lifespan of first dog in array below:");
-    console.log(allDogData[0].life_span);
-    console.log("---Temperament of first dog in array below:");
-    console.log(allDogData[0].temperament);
-    console.log("---Image id of first dog in array below:");
-    console.log(allDogData[0].image.id);
-    // console.log("---Image width of first dog in array below:");
-    // console.log(allDogData[0].image.width);
-    // console.log("---Image height of first dog in array below:");
-    // console.log(allDogData[0].image.height);
-    console.log("---Image url of first dog in array below:");
-    console.log(allDogData[0].image.url);
+    // console.log("---Name first dog in array below:");
+    // console.log(allDogData[0].name);
+    // console.log("---id that is affiliated with breed for search purposes");
+    // console.log(allDogData[0].id);
+    // console.log("---Lifespan of first dog in array below:");
+    // console.log(allDogData[0].life_span);
+    // console.log("---Temperament of first dog in array below:");
+    // console.log(allDogData[0].temperament);
+    // console.log("---Image id of first dog in array below:");
+    // console.log(allDogData[0].image.id);
+    // // console.log("---Image width of first dog in array below:");
+    // // console.log(allDogData[0].image.width);
+    // // console.log("---Image height of first dog in array below:");
+    // // console.log(allDogData[0].image.height);
+    // console.log("---Image url of first dog in array below:");
+    // console.log(allDogData[0].image.url);
     return allDogData;
   });
 } 
@@ -46,6 +46,7 @@ var height = document.querySelector("#height");
 var weight = document.querySelector("#weight");
 var origin = document.querySelector("#origin");
 var dogFactsCard = document.querySelector(".dog-facts-card")
+var breedPhoto = document.querySelector(".breed-photo")
 
 dogFactsCard.classList.add("hide-me");
 
@@ -79,9 +80,10 @@ var populateDogs = (breeds) => {
 //function that takes in a select dog and finds the dog from the array of dog information =>returns select dog
 // I tried to run my fetchDog function earlier but couldn't because the page loaded too quickly, so we then ran it again but waiting until it was inside the .then so that it wouldn't run until the API was ready with information to return
 function compareUserInputToData(selectDog) {
-    console.log(selectDog);
+    // console.log(selectDog);
     fetchDogs().then(function (data) {
     const foundDog = data.find((dog) => dog.id === selectDog);
+    console.log("Found dog below:")
     console.log(foundDog)
     dogFactsCard.classList.remove("hide-me");
     dogName.innerHTML = foundDog.name;
@@ -91,8 +93,13 @@ function compareUserInputToData(selectDog) {
     temperament.innerHTML = "Temperament: " + foundDog.temperament;
     height.innerHTML = "Height: " + foundDog.height.imperial + " inches";
     weight.innerHTML = "Weight: " + foundDog.weight.imperial + " lbs";
-    origin.innerHTML = "Origin: " + foundDog.origin;
+    // origin.innerHTML = "Origin: " + foundDog.origin;
+    
+    // breedPhoto.prepend(src = foundDog.image.url);
+    breedPhoto.setAttribute("src", foundDog.image.url)
+    console.log(foundDog.image.url)
 
     return foundDog;
     
   }).catch(err=>console.error(err))}
+  
