@@ -49,6 +49,7 @@ var dogFactsCard = document.querySelector(".dog-facts-card")
 var breedPhoto = document.querySelector(".breed-photo")
 
 dogFactsCard.classList.add("hide-me");
+breedPhoto.classList.add("hide-me");
 
 select.addEventListener("change", function (eventOnChild) {
   var element = eventOnChild.target.value;
@@ -86,6 +87,7 @@ function compareUserInputToData(selectDog) {
     console.log("Found dog below:")
     console.log(foundDog)
     dogFactsCard.classList.remove("hide-me");
+    breedPhoto.classList.remove("hide-me");
     dogName.innerHTML = foundDog.name;
     dogName.style.fontWeight="bolder";
     lifeSpan.innerHTML = "Life Span: " + foundDog.life_span;
@@ -102,4 +104,3 @@ function compareUserInputToData(selectDog) {
     return foundDog;
     
   }).catch(err=>console.error(err))}
-  
