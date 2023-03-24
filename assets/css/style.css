@@ -4,10 +4,10 @@
 }
 
 #Giphy img {
-    width:150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    margin: 0px 0px 0px 115px;
 }
-
 
 :root {
     --primary-background-color: #E6DED4;
@@ -23,15 +23,26 @@
     box-shadow: 0px 20px 20px var(--primary-shadow-color);
 }
 
-h1, .navbar-end a{
-    margin: 0px 30px;
+h1, h2, .navbar-end a{
+    text-align: center;
+    margin: 0px 40px;
     font-weight: bold;
     font-size: 20px;
+    color: var(--primary-text-color) !important;
+}
+
+li, p {
+    color: var(--primary-text-color);
+    padding: 5px;
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: 80px;
 }
 
 .navbar-end a {
     background-color: var(--primary-background-color) !important;
-    color: var(--primary-text-color);
     padding: 15px;
     text-decoration: none;
 }
@@ -60,5 +71,6 @@ h1, .navbar-end a{
     border: #DA828F solid 2px;
     border-radius: 10px;
     box-shadow: 0px 20px 20px var(--primary-shadow-color);
+    width: 250px;
+    height: 250px;
 }
-
