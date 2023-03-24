@@ -23,7 +23,7 @@
     box-shadow: 0px 20px 20px var(--primary-shadow-color);
 }
 
-h1, h2, .navbar-end a{
+h1, h2, .navbar-brand a{
     text-align: center;
     margin: 0px 40px;
     font-weight: bold;
@@ -41,13 +41,17 @@ li, p {
     height: 80px;
 }
 
-.navbar-end a {
-    background-color: var(--primary-background-color) !important;
+.navbar-brand a {
+   
     padding: 15px;
     text-decoration: none;
 }
 
-.navbar-end a:hover {
+.first {
+    margin-left: 1200px !important;
+}
+
+.navbar-brand a:hover {
     color: var(--primary-border-color);
     text-decoration: underline;
 }
@@ -71,6 +75,4 @@ li, p {
     border: #DA828F solid 2px;
     border-radius: 10px;
     box-shadow: 0px 20px 20px var(--primary-shadow-color);
-    width: 250px;
-    height: 250px;
 }
